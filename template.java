@@ -8,7 +8,7 @@ Date of last contribution (Use the date on Github commit)
 
 import java.util.Scanner;
 
-class Main {
+class Template {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
