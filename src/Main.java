@@ -8,7 +8,6 @@ Date of last contribution (Use the date on Github commit)
 
 import java.awt.*;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 
 class Main {
     public static void main(String[] args) {
@@ -21,12 +20,12 @@ class Main {
         // Panel Config
         JPanel mainPanel = new JPanel();
         LayoutManager layout1 = new GridLayout(5,5,10,10);
-        mainFrame.setLayout(layout1);
+        mainPanel.setLayout(layout1);
         
         JLabel title = new JLabel("Name Eventually");
         title.setHorizontalAlignment(0);
 
-        mainFrame.add(title);
+        mainPanel.add(title);
         
 
         mainFrame.setVisible(true);
