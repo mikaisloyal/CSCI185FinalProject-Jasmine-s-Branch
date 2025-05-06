@@ -27,7 +27,7 @@ class Main {
 
         mainPanel.add(title);
         
-
+        mainFrame.add(mainPanel);
         mainFrame.setVisible(true);
     }
 }
