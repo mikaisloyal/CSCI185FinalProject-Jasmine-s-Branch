@@ -6,7 +6,6 @@ Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
 
-import UniversityFiles.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -30,8 +29,6 @@ class Main {
 
 
     
-        //Creating custom panel from UniversityDropDownPanel class
-        UniversityDropdownPanel uniLocationPanel = new UniversityDropdownPanel();
 
         //Components
         JLabel title = new JLabel("Name Eventually");
@@ -47,6 +44,11 @@ class Main {
 
         insButton.addActionListener((ActionEvent e) -> {
             Instruction insPage = new Instruction();
+        });
+
+        runButton.addActionListener((ActionEvent e) -> {
+            mainFrame.dispose();
+            NetworkPage netPage = new NetworkPage();
         });
 
         //Adding components to panel
