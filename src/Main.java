@@ -5,8 +5,10 @@ M03
 Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
-package src;
+
+import UniversityFiles.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 class Main {
@@ -18,10 +20,16 @@ class Main {
         mainFrame.setSize(800,800);
 
         // Panel Config
-        JPanel mainPanel = new JPanel();
-        LayoutManager layout1 = new GridLayout(5,5,10,10);
-        mainPanel.setLayout(layout1);
+        int panelRow = 5;
+        int panelCol = 5;
 
+        JPanel mainPanel = new JPanel();
+        mainPanel.setBackground(Color.cyan);
+        mainPanel.setLayout(new GridLayout(panelRow, panelCol, 10 , 10));
+
+
+
+    
         //Creating custom panel from UniversityDropDownPanel class
         UniversityDropdownPanel uniLocationPanel = new UniversityDropdownPanel();
 
@@ -29,11 +37,26 @@ class Main {
         JLabel title = new JLabel("Name Eventually");
         title.setHorizontalAlignment(0);
 
+        JButton insButton = new JButton("Instructions");
+        insButton.setHorizontalAlignment(0);
+
+        JButton runButton = new JButton("Run");
+        runButton.setHorizontalAlignment(0);
+
+        // Functionality
+
+        insButton.addActionListener((ActionEvent e) -> {
+            Instruction insPage = new Instruction();
+        });
+
         //Adding components to panel
         mainPanel.add(title);
-        
+        mainPanel.add(insButton);
+        mainPanel.add(runButton);
+
+
+        // mainPanel.add(uniLocationPanel);
         mainFrame.add(mainPanel);
-        mainFrame.add(uniLocationPanel);
         mainFrame.setVisible(true);
     }
 }

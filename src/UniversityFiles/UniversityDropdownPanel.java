@@ -5,7 +5,8 @@ M03
 Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
-package src;
+
+package UniversityFiles;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

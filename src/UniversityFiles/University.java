@@ -6,7 +6,7 @@ Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
 
-package src;
+package UniversityFiles;
 
 public class University {
         //University instance variables
