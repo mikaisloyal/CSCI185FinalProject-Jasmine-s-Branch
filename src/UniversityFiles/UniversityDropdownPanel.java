@@ -7,6 +7,7 @@ Date of last contribution (Use the date on Github commit)
 */
 
 package UniversityFiles;
+import java.util.function.Consumer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -91,5 +92,20 @@ public class UniversityDropdownPanel extends JPanel{
     }
 
 
+    public void setLocationSelectionListener(Consumer<String> listener){
+        locationDropdown.addActionListener(e ->{
+            String selectedCountry = (String) locationDropdown.getSelectedItem();
+            universityDropDown.removeAllItems();
+            for (University u : universityMap.get(selectedCountry)){
+                universityDropDown.addItem(u);
+            }
+            listener.accept(selectedCountry);
+        });
+
+        //Manually trigger for initial selection
+        listener.accept((String) locationDropdown.getSelectedItem());
     }
+
+
+}
 
