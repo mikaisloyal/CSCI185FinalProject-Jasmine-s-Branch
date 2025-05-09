@@ -6,13 +6,12 @@ Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
 
-package UniversityFiles;
-import java.util.function.Consumer;
-import javax.swing.*;
+package UserFiles;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import java.util.List;
+import java.util.function.Consumer;
+import javax.swing.*;
 
 //this is a panel class: making a custom panel that can be created in the main class
 public class UniversityDropdownPanel extends JPanel{

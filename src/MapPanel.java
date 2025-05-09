@@ -1,10 +1,10 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
+import javax.swing.*;
 
 public class MapPanel extends JPanel {
     private BufferedImage worldMap;
@@ -13,7 +13,7 @@ public class MapPanel extends JPanel {
 
     public MapPanel(){
         try{
-            worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
+            worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
         }
         catch (IOException e) {
             e.printStackTrace();
