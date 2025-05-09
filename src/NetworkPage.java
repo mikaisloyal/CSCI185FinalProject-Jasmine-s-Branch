@@ -1,6 +1,6 @@
-import UniversityFiles.*;
-import javax.swing.*;
+import UserFiles.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class NetworkPage extends JFrame {
     public NetworkPage() {
@@ -15,12 +15,12 @@ public class NetworkPage extends JFrame {
         UniversityDropdownPanel uniLocationPanel = new UniversityDropdownPanel();
         this.add(uniLocationPanel, BorderLayout.WEST);
 
-        //Map panel on the right
+        // Map panel on the right
         MapPanel mapPanel = new MapPanel();
         this.add(mapPanel, BorderLayout.CENTER);
 
 
-        //Hooking University Location dropdown to map panel
+        // Hooking University Location dropdown to map panel
         uniLocationPanel.setLocationSelectionListener((String countryName) -> {
             mapPanel.highlightCountry(countryName);
         });
