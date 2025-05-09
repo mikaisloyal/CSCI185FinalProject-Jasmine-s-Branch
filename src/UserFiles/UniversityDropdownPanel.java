@@ -1,19 +1,19 @@
 /*
-Project Title: Global Student Network Simulator
-Course: Spring 2025 - M03 - Computer Programming II
-Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
-Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
- */
+ProjectName
+CSCI 185
+M03
+Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
+Date of last contribution (Use the date on Github commit)
+*/
 
 package UserFiles;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import java.util.List;
+import java.util.function.Consumer;
+import javax.swing.*;
 
 //this is a panel class: making a custom panel that can be created in the main class
-
 public class UniversityDropdownPanel extends JPanel{
     //Creating instance ComboBox (dropdowns) variables
     private JComboBox<String> locationDropdown;
@@ -91,5 +91,20 @@ public class UniversityDropdownPanel extends JPanel{
     }
 
 
+    public void setLocationSelectionListener(Consumer<String> listener){
+        locationDropdown.addActionListener(e ->{
+            String selectedCountry = (String) locationDropdown.getSelectedItem();
+            universityDropDown.removeAllItems();
+            for (University u : universityMap.get(selectedCountry)){
+                universityDropDown.addItem(u);
+            }
+            listener.accept(selectedCountry);
+        });
+
+        //Manually trigger for initial selection
+        listener.accept((String) locationDropdown.getSelectedItem());
     }
+
+
+}
 
