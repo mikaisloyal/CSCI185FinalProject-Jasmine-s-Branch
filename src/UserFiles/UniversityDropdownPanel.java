@@ -90,7 +90,7 @@ public class UniversityDropdownPanel extends JPanel{
         return (University) universityDropDown.getSelectedItem();
     }
 
-
+    //lets another class react when a location is picked
     public void setLocationSelectionListener(Consumer<String> listener){
         locationDropdown.addActionListener(e ->{
             String selectedCountry = (String) locationDropdown.getSelectedItem();
