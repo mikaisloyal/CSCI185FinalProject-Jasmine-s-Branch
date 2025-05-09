@@ -12,34 +12,36 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 class Main {
+
+
     public static void main(String[] args) {
 
+
         // Main Frame initializing
-        JFrame mainFrame = new JFrame("Name eventually (Trademarked)");
+        JFrame mainFrame = new JFrame("Global Student Network Simulator");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setSize(800,800);
 
-        // Panel Config
-        int panelRow = 5;
-        int panelCol = 5;
-
         JPanel mainPanel = new JPanel();
-        mainPanel.setBackground(Color.cyan);
-        mainPanel.setLayout(new GridLayout(panelRow, panelCol, 10 , 10));
-
-
-
-
+        mainPanel.setBackground(Color.orange);
+        mainPanel.setLayout(new BorderLayout());
 
         //Components
-        JLabel title = new JLabel("Name Eventually");
+        JLabel title = new JLabel("Global Student Network Simulator");
+        title.setFont(new Font("Comic Sans MS", Font.PLAIN, 40));
         title.setHorizontalAlignment(0);
+        mainPanel.add(title,BorderLayout.NORTH);
+
 
         JButton insButton = new JButton("Instructions");
         insButton.setHorizontalAlignment(0);
+        insButton.setBackground(Color.cyan);
+        mainPanel.add(insButton,BorderLayout.WEST);
 
         JButton runButton = new JButton("Run");
         runButton.setHorizontalAlignment(0);
+        runButton.setBackground(Color.cyan);
+        mainPanel.add(runButton,BorderLayout.CENTER);
 
         // Functionality
 
@@ -51,11 +53,6 @@ class Main {
             mainFrame.dispose();
             NetworkPage netPage = new NetworkPage();
         });
-
-        //Adding components to panel
-        mainPanel.add(title);
-        mainPanel.add(insButton);
-        mainPanel.add(runButton);
 
 
         // mainPanel.add(uniLocationPanel);
@@ -117,6 +114,8 @@ class Main {
         */
 
     }
+
+
 }
 
 
