@@ -14,7 +14,7 @@ public class MapPanel extends JPanel {
     public MapPanel(){
 
         try{
-            worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
+            worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
         }
         catch (IOException e) {
             System.out.println("Could not load map image!");
