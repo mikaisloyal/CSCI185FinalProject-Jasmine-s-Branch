@@ -5,8 +5,7 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
-package src.GUIcomponents;
-import src.OOPfiles.University;
+package UserFiles;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

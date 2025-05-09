@@ -5,13 +5,9 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
-package src;
 
-import src.FileIO.FileManager;
-import src.GUIcomponents.Instruction;
-import src.GUIcomponents.NetworkPage;
-import src.OOPfiles.Student;
-import src.OOPfiles.University;
+import FileIO.*;
+import UserFiles.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

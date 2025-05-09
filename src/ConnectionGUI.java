@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class ConnectionGUI {
+public class ConnectionGUI{
     // sets up JFrame, JLabel, and JProgressBar in the public class as to
     // allow it to be modified more aptly within the ConnectionGUI class
     // alongside providing clarity + modularity

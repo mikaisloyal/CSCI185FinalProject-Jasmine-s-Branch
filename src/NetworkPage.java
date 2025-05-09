@@ -5,9 +5,8 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
-package src.GUIcomponents;
-
 import javax.swing.*;
+import UserFiles.*;
 
 public class NetworkPage extends JFrame{
     public NetworkPage(){

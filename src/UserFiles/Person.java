@@ -5,7 +5,7 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
-package src.OOPfiles;
+package UserFiles;
 
 // Person is an abstract class because we never create a generic "person" directly.
 // It's only meant to be extended by specific roles like Student.

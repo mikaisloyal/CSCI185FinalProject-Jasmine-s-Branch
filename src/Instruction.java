@@ -5,8 +5,6 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
-package src.GUIcomponents;
-
 import javax.swing.*;
 
 public class Instruction extends JFrame{
