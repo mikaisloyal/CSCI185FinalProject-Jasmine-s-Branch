@@ -50,8 +50,7 @@ public class University implements Serializable {
     //toString method to display all attributes at one.
     @Override
     public String toString(){
-        return ("University Name: " + this.universityName + "\n" +
-                "University's Country of Location: " + this.universityCountry + "\n\n");
+        return (this.universityName);
     }
 }
 
