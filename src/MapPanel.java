@@ -16,8 +16,7 @@ public class MapPanel extends JPanel {
             worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
         }
         catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Could not load map image!", "Error", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Could not load map image!");
         }
 
         //setting preferred size to original image size
