@@ -1,14 +1,16 @@
+import UserFiles.*;
 import java.awt.*;
 import javax.swing.*;
-import OOPfiles.*;
 
 /*
 rewrite to make it more clear. provides separation and utilizes
 encapsulation to prevent external mishaps
  */
 
-public class ConnectionGUI {
-    // initializes these variables initially within ConnectionGUI class
+public class ConnectionGUI{
+    // sets up JFrame, JLabel, and JProgressBar in the public class as to
+    // allow it to be modified more aptly within the ConnectionGUI class
+    // alongside providing clarity + modularity
     private JFrame frame;
     private JLabel studentsPairedLabel;
     private JProgressBar connectionStrengthBar;

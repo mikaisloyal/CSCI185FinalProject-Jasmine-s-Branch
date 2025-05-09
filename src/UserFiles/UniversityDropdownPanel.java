@@ -6,12 +6,12 @@ Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
 
-package UniversityFiles;
-import javax.swing.*;
+package UserFiles;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
 import java.util.List;
+import java.util.function.Consumer;
+import javax.swing.*;
 
 //this is a panel class: making a custom panel that can be created in the main class
 public class UniversityDropdownPanel extends JPanel{
@@ -91,5 +91,20 @@ public class UniversityDropdownPanel extends JPanel{
     }
 
 
+    public void setLocationSelectionListener(Consumer<String> listener){
+        locationDropdown.addActionListener(e ->{
+            String selectedCountry = (String) locationDropdown.getSelectedItem();
+            universityDropDown.removeAllItems();
+            for (University u : universityMap.get(selectedCountry)){
+                universityDropDown.addItem(u);
+            }
+            listener.accept(selectedCountry);
+        });
+
+        //Manually trigger for initial selection
+        listener.accept((String) locationDropdown.getSelectedItem());
     }
+
+
+}
 
