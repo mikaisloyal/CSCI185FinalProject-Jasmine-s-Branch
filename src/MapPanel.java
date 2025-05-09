@@ -12,6 +12,7 @@ public class MapPanel extends JPanel {
     private final HashMap<String, Point> countryCoordinates = new HashMap<>();
 
     public MapPanel(){
+
         try{
             worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
         }
