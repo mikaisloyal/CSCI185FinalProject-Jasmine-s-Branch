@@ -25,7 +25,7 @@ public class MapPanel extends JPanel {
             this.setPreferredSize(new Dimension(worldMap.getWidth(), worldMap.getHeight()));
         }
 
-        //Initializing original pixel coordinates for each country
+        //Initializing original pixel coordinates (hashmap) for each country
         countryCoordinates.put("USA", new Point(775, 973));
         countryCoordinates.put("Canada", new Point(751, 683));
         countryCoordinates.put("Australia", new Point(3345, 1659));
@@ -34,8 +34,11 @@ public class MapPanel extends JPanel {
         countryCoordinates.put("Japan", new Point(3368, 957));
     }
 
+    //tells the map to highlight the selected country
     public void highlightCountry(String countryName){
-        if(countryCoordinates.containsKey(countryName)) {
+        //checks if the selected country has a coordinate on the hashmap
+        if(countryCoordinates.containsKey(countryName)){
+            //sets a new variable to this panel--so that we can tell the map to highlight only the countryName
             this.selectedCountry = countryName;
             repaint();
         }

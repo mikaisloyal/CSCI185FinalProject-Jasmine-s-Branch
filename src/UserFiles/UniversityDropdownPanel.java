@@ -85,23 +85,27 @@ public class UniversityDropdownPanel extends JPanel{
         this.add(universityDropDown);
     }
 
-    //this is the method we can call to get the selected university
+    //collecting the currently selected university (object) from the dropdown
     public University getSelectedUniversity(){
         return (University) universityDropDown.getSelectedItem();
     }
 
     //lets another class react when a location is picked
+    //using Consumer T for more flexibility (logic is passed in from the outside)
     public void setLocationSelectionListener(Consumer<String> listener){
         locationDropdown.addActionListener(e ->{
+            //getting the selected country from the location dropdown
             String selectedCountry = (String) locationDropdown.getSelectedItem();
-            universityDropDown.removeAllItems();
+            universityDropDown.removeAllItems();//clears all current entries from university dropdown
+            //loops through universityMap hashmap to gather all universities in the selected country
             for (University u : universityMap.get(selectedCountry)){
                 universityDropDown.addItem(u);
             }
+            //triggers whatever custom action another class passed via the listener
             listener.accept(selectedCountry);
         });
 
-        //Manually trigger for initial selection
+        //making sure that "listener" runs the Consumer code and passes in the selected location
         listener.accept((String) locationDropdown.getSelectedItem());
     }
 
