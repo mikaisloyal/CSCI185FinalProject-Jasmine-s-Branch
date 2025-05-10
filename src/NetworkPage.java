@@ -37,7 +37,7 @@ public class NetworkPage extends JFrame {
         // Hooking University Location dropdown to map panel
         
 
-        uniLocationPanel.setLocationSelectionListener((University countryName) -> {
+        uniLocationPanel.setLocationSelectionListener((String countryName) -> {
             mapPanel.highlightCountry(countryName);
         });
 

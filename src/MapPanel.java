@@ -147,9 +147,10 @@ public class MapPanel extends JPanel implements MouseListener {
 
             if (hitBox.contains(mouseX, mouseY)) {
                 if(arr.size() <= 2){
-                    arr.add(pin.stu);
                     if (arr.size() == 2) {
                         System.out.println("Limiter reached");
+                    } else {
+                        arr.add(pin.stu);
                     }
                 }
                 System.out.println("Selected: " + pin.studentName);
