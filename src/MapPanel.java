@@ -1,27 +1,51 @@
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class MapPanel extends JPanel {
+public class MapPanel extends JPanel implements MouseListener {
     private BufferedImage worldMap;
     private String selectedCountry = null;
     private final HashMap<String, Point> countryCoordinates = new HashMap<>();
 
-    public MapPanel(){
+    //Creating a mini Pin class
+    private static class Pin {
+        //Instance variables
+        int x;
+        int y;
+        //studentName is a placeholder for when we actually get the name...
+        //note to use: String studentName = student.getFirstName();
+        //this name will appear above the pin
+        String studentName;
+        //button portion
+        boolean selected = false;
 
-        try{
-            worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
+        //Constructor
+        Pin(int x, int y, String studentName) {
+            this.x = x;
+            this.y = y;
+            this.studentName = studentName;
         }
-        catch (IOException e) {
+    }
+
+
+    public MapPanel() {
+        this.addMouseListener(this);//adding the listener
+        try {
+            worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
+        } catch (IOException e) {
             System.out.println("Could not load map image!");
         }
 
         //setting preferred size to original image size
-        if (worldMap != null){
+        if (worldMap != null) {
             this.setPreferredSize(new Dimension(worldMap.getWidth(), worldMap.getHeight()));
         }
 
@@ -34,50 +58,108 @@ public class MapPanel extends JPanel {
         countryCoordinates.put("Japan", new Point(3368, 957));
     }
 
+    //create pin array list
+    private List<Pin> pins = new ArrayList<>();
+
+
     //tells the map to highlight the selected country
-    public void highlightCountry(String countryName){
+    public void highlightCountry(String countryName) {
         //checks if the selected country has a coordinate on the hashmap
-        if(countryCoordinates.containsKey(countryName)){
+        if (countryCoordinates.containsKey(countryName)) {
             //sets a new variable to this panel--so that we can tell the map to highlight only the countryName
             this.selectedCountry = countryName;
             repaint();
         }
     }
 
-    //making sure that the image actually shows up
+    //adding pins--use this method for "create" button
+    //USE: mapPanel.addPin(parameters)
+    public void addPin(String countryName, String studentName) {
+        if (countryCoordinates.containsKey(countryName)) {
+            Point coords = countryCoordinates.get(countryName);
+            //adding new pin with the coords and name
+            pins.add(new Pin(coords.x, coords.y, studentName));
+            repaint(); //refreshes the panel to show the new pin
+        }
+    }
+
+
     @Override
-    protected void paintComponent(Graphics g){
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (worldMap != null){
-            //this resizes the image to fit inside the panel
+
+        //drawing sclaed map image
+        if (worldMap != null) {
             g.drawImage(worldMap, 0, 0, getWidth(), getHeight(), this);
         }
 
-        //will only draw something is a country has been selected and its in coordinate
-        if(selectedCountry != null && countryCoordinates.containsKey(selectedCountry)){
-            //cast graphics and grabs coordinates for the selected country
-            Graphics2D g2 = (Graphics2D) g;
-            Point originalPoint = countryCoordinates.get(selectedCountry);
+        //scaling
+        double scaleX = (double) getWidth() / worldMap.getWidth();
+        double scaleY = (double) getHeight() / worldMap.getHeight();
 
-            //calculates how much the image was resized (coordinates will be consistent even if panel is scaled)
-            double scaleX = (double)getWidth() / worldMap.getWidth();
-            double scaleY = (double) getHeight() / worldMap.getHeight();
+        //drawing pin and student name
+        for (Pin pin : pins) {
+            int scaledX = (int) (pin.x * scaleX);
+            int scaledY = (int) (pin.y * scaleY);
 
-            //takes origianl coordinates and applies the scaling
-            int x = (int) (originalPoint.x * scaleX);
-            int y = (int)(originalPoint.y * scaleY);
+            //drwaing the pin ( red circle)
+            g.setColor(Color.RED);
+            g.fillOval(scaledX - 5, scaledY - 5, 10, 10);
 
-            //the emoji
-            g2.setFont(new Font("SansSerif", Font.PLAIN, 20));
-            g2.drawString(getEmojiLabel(selectedCountry), x, y);
+            //drawing the student name above the pin
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+            g.drawString(pin.studentName, scaledX - 15, scaledY - 10);
         }
     }
 
-    //Getting the pin emoji
-    private String getEmojiLabel(String country){
-        return "📍";
+
+    //clear pins using this method--for "reset" button
+    //USE: mapPanel.clearPins();
+    public void clearPins() {
+        pins.clear();
+        repaint();//redrawing map with no pins
     }
 
+    @Override
+    public void mouseClicked(MouseEvent m) {
+        int mouseX = m.getX();
+        int mouseY = m.getY();
+
+        //scaling has to be the same as paintComponent
+        double scaleX = (double) getWidth() / worldMap.getWidth();
+        double scaleY = (double) getHeight() / worldMap.getHeight();
+
+        //looping through all pins to check which ones got clicked
+        for (Pin pin : pins) {
+            int scaledX = (int) (pin.x * scaleX);
+            int scaledY = (int) (pin.y * scaleY);
+
+            int radius = 10;
+            Rectangle hitBox = new Rectangle(scaledX - radius / 2, scaledY - radius / 2, radius, radius);
+
+            if (hitBox.contains(mouseX, mouseY)) {
+                System.out.println("Selected: " + pin.studentName);
+                //NOTE: add button functionality here:
+                break;
+            }
+        }
+    }
+        //overriding all the methods given by MouseListener
+        @Override
+        public void mouseEntered(MouseEvent m){
+        }
+        @Override
+        public void mouseExited (MouseEvent m){
+        }
+        @Override
+        public void mousePressed (MouseEvent m){
+        }
+        @Override
+        public void mouseReleased (MouseEvent m){
+        }
 }
+
+
 
 
