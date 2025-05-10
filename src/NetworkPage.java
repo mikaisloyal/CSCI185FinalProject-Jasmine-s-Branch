@@ -19,6 +19,10 @@ public class NetworkPage extends JFrame {
         MapPanel mapPanel = new MapPanel();
         this.add(mapPanel, BorderLayout.CENTER);
 
+//        //TEMP testing for red dots on map
+//        mapPanel.addPin("USA", "ughhh");
+//        mapPanel.addPin("Japan", "pikachu");
+
 
         // Hooking University Location dropdown to map panel
         uniLocationPanel.setLocationSelectionListener((String countryName) -> {
