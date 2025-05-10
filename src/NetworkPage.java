@@ -20,8 +20,8 @@ public class NetworkPage extends JFrame {
         MapPanel mapPanel = new MapPanel();
         this.add(mapPanel, BorderLayout.CENTER);
 
-//        //TEMP testing for red dots on map
 
+       //TEMP testing for red dots on map
         ArrayList<String> arr = new ArrayList<String>();
         ArrayList<String> arr2 = new ArrayList<String>();
         University nyit = new University("New York Institute of Technology", "USA");
@@ -34,13 +34,17 @@ public class NetworkPage extends JFrame {
         mapPanel.addPin(kyoto, student2);
 
 
-        // Hooking University Location dropdown to map panel
-        
-
-        uniLocationPanel.setLocationSelectionListener((String countryName) -> {
-            mapPanel.highlightCountry(countryName);
-        });
-
+        //this actionListener is for interactive dropdown selection: the circle will show up depending on what the user selects
+        //it should work once it gets hooked to the "create" button
+//        JComboBox<University> uniDropdown = uniLocationPanel.getUniversityDropDown();
+//        uniDropdown.addActionListener(e ->{
+//            University selectedUni = (University) uniDropdown.getSelectedItem();
+//            if(selectedUni!= null){
+//                student1.setUniversity((selectedUni));
+//                mapPanel.highlightCountry(selectedUni);
+//                mapPanel.addPin(selectedUni, student1);
+//            }
+//        });
 
         this.setVisible(true);
     }

@@ -60,7 +60,13 @@ public class UniversityDropdownPanel extends JPanel{
 
         //Creating new instances of the location and university dropdowns
         //this locationDropdown will contain the hashmap
-        locationDropdown = new JComboBox<>(universityMap.keySet().toArray(new String[0]));
+        locationDropdown = new JComboBox<>();
+        //the dropdown will start off blank
+        locationDropdown.addItem(" ");
+        for (String country : universityMap.keySet()){
+            //this dropdown will contain all the countries from the universityMap hashmap
+            locationDropdown.addItem(country);
+        }
         universityDropDown = new JComboBox<>();
 
         //Adding action listener for the locationDropdown combobox, using lambda
@@ -68,14 +74,20 @@ public class UniversityDropdownPanel extends JPanel{
             //getting current selected country and storing it as a String
             String selectedCountry = (String)locationDropdown.getSelectedItem();
             universityDropDown.removeAllItems();//clears out existing items so it doesn't stack
-            //this loop gets the list of all the University objects for the current selected country
-            for (University u : universityMap.get(selectedCountry)){
-                universityDropDown.addItem(u);
+
+            //Skip if invalid things are selected
+            if (!universityMap.containsKey(selectedCountry)){
+                return;
+            }
+
+            List<University> uniList = universityMap.get(selectedCountry);
+            if (uniList != null) {
+                //this loop gets the list of all the University objects for the current selected country
+                for (University u : uniList) {
+                    universityDropDown.addItem(u);
+                }
             }
         });
-
-        //triggering once to populate initial list
-        locationDropdown.setSelectedIndex(0);
 
         //Adding all components to panel
         this.setLayout(new FlowLayout());
@@ -92,21 +104,25 @@ public class UniversityDropdownPanel extends JPanel{
 
     //lets another class react when a location is picked
     //using Consumer T for more flexibility (logic is passed in from the outside)
-    public void setLocationSelectionListener(Consumer<String> listener){
+    public void setLocationSelectionListener(Consumer<University> listener){
         locationDropdown.addActionListener(e ->{
             //getting the selected country from the location dropdown
             String selectedCountry = (String) locationDropdown.getSelectedItem();
             universityDropDown.removeAllItems();//clears all current entries from university dropdown
-            //loops through universityMap hashmap to gather all universities in the selected country
-            for (University u : universityMap.get(selectedCountry)){
-                universityDropDown.addItem(u);
-            }
-            //triggers whatever custom action another class passed via the listener
-            listener.accept(selectedCountry);
-        });
 
-        //making sure that "listener" runs the Consumer code and passes in the selected location
-        listener.accept((String) locationDropdown.getSelectedItem());
+            List<University> uniList = universityMap.get(selectedCountry);
+            if (uniList != null) {
+                //loops through universityMap hashmap to gather all universities in the selected country
+                for (University u : uniList) {
+                    universityDropDown.addItem(u);
+                }
+            }
+        });
+    }
+
+    //dropdown getter
+    public JComboBox<University> getUniversityDropDown(){
+        return universityDropDown;
     }
 
 

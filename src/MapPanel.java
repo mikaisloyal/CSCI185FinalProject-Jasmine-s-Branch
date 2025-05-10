@@ -45,7 +45,7 @@ public class MapPanel extends JPanel implements MouseListener {
         this.addMouseListener(this);//adding the listener
         try {
             // worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
-            worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
+            worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
         } catch (IOException e) {
             System.out.println("Could not load map image!");
         }
@@ -70,19 +70,23 @@ public class MapPanel extends JPanel implements MouseListener {
 
     //tells the map to highlight the selected country
     public void highlightCountry(University uniCountry) {
-        //checks if the selected country has a coordinate on the hashmap
+        //getting country from university
+        String country = uniCountry.getUniversityCountry();
+        //checks if the country has a coordinate on the hashmap
         if (countryCoordinates.containsKey(uniCountry.getUniversityName())) {
             //sets a new variable to this panel--so that we can tell the map to highlight only the countryName
-            this.selectedCountry = uniCountry.getUniversityName();
+            this.selectedCountry = country;
             repaint();
         }
     }
 
-    //adding pins--use this method for "create" button
+
     //USE: mapPanel.addPin(parameters)
     public void addPin(University university, Student studentName) {
-        if (countryCoordinates.containsKey(university.getUniversityName())) {
-            Point coords = countryCoordinates.get(university.getUniversityName());
+        String country = university.getUniversityCountry();
+        //checks if the country has coordinates
+        if (countryCoordinates.containsKey(country)){
+            Point coords = countryCoordinates.get(country);
             //adding new pin with the coords and name
             pins.add(new Pin(coords.x, coords.y, studentName));
             repaint(); //refreshes the panel to show the new pin
