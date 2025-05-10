@@ -1,5 +1,6 @@
 import UserFiles.*;
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class NetworkPage extends JFrame {
@@ -20,12 +21,23 @@ public class NetworkPage extends JFrame {
         this.add(mapPanel, BorderLayout.CENTER);
 
 //        //TEMP testing for red dots on map
-//        mapPanel.addPin("USA", "ughhh");
-//        mapPanel.addPin("Japan", "pikachu");
+
+        ArrayList<String> arr = new ArrayList<String>();
+        ArrayList<String> arr2 = new ArrayList<String>();
+        University nyit = new University("New York Institute of Technology", "USA");
+        University kyoto = new University("Kyoto University", "Japan");
+
+
+        Student student1 = new Student("Aron", "Lin", 18, "Asian", nyit, "CS", arr, arr2);
+        Student student2 = new Student("Rita", "Chen", 18, "Asian", kyoto, "CS", arr, arr2);
+        mapPanel.addPin(nyit, student1);
+        mapPanel.addPin(kyoto, student2);
 
 
         // Hooking University Location dropdown to map panel
-        uniLocationPanel.setLocationSelectionListener((String countryName) -> {
+        
+
+        uniLocationPanel.setLocationSelectionListener((University countryName) -> {
             mapPanel.highlightCountry(countryName);
         });
 

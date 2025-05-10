@@ -1,3 +1,4 @@
+import UserFiles.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,6 +15,7 @@ public class MapPanel extends JPanel implements MouseListener {
     private BufferedImage worldMap;
     private String selectedCountry = null;
     private final HashMap<String, Point> countryCoordinates = new HashMap<>();
+    private ArrayList<Student> arr;
 
     //Creating a mini Pin class
     private static class Pin {
@@ -23,23 +25,27 @@ public class MapPanel extends JPanel implements MouseListener {
         //studentName is a placeholder for when we actually get the name...
         //note to use: String studentName = student.getFirstName();
         //this name will appear above the pin
+        Student stu;
         String studentName;
         //button portion
         boolean selected = false;
 
         //Constructor
-        Pin(int x, int y, String studentName) {
+        Pin(int x, int y, Student stuName) {
             this.x = x;
             this.y = y;
-            this.studentName = studentName;
+            this.stu = stuName;
+            this.studentName = stuName.getFirstName() + " " + stuName.getLastName();
         }
     }
 
 
     public MapPanel() {
+        arr = new ArrayList<Student>();
         this.addMouseListener(this);//adding the listener
         try {
-            worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
+            // worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
+            worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
         } catch (IOException e) {
             System.out.println("Could not load map image!");
         }
@@ -63,20 +69,20 @@ public class MapPanel extends JPanel implements MouseListener {
 
 
     //tells the map to highlight the selected country
-    public void highlightCountry(String countryName) {
+    public void highlightCountry(University uniCountry) {
         //checks if the selected country has a coordinate on the hashmap
-        if (countryCoordinates.containsKey(countryName)) {
+        if (countryCoordinates.containsKey(uniCountry.getUniversityName())) {
             //sets a new variable to this panel--so that we can tell the map to highlight only the countryName
-            this.selectedCountry = countryName;
+            this.selectedCountry = uniCountry.getUniversityName();
             repaint();
         }
     }
 
     //adding pins--use this method for "create" button
     //USE: mapPanel.addPin(parameters)
-    public void addPin(String countryName, String studentName) {
-        if (countryCoordinates.containsKey(countryName)) {
-            Point coords = countryCoordinates.get(countryName);
+    public void addPin(University university, Student studentName) {
+        if (countryCoordinates.containsKey(university.getUniversityName())) {
+            Point coords = countryCoordinates.get(university.getUniversityName());
             //adding new pin with the coords and name
             pins.add(new Pin(coords.x, coords.y, studentName));
             repaint(); //refreshes the panel to show the new pin
@@ -123,6 +129,7 @@ public class MapPanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent m) {
+        ArrayList<Student> arr = new ArrayList<Student>();
         int mouseX = m.getX();
         int mouseY = m.getY();
 
@@ -139,6 +146,12 @@ public class MapPanel extends JPanel implements MouseListener {
             Rectangle hitBox = new Rectangle(scaledX - radius / 2, scaledY - radius / 2, radius, radius);
 
             if (hitBox.contains(mouseX, mouseY)) {
+                if(arr.size() <= 2){
+                    arr.add(pin.stu);
+                    if (arr.size() == 2) {
+                        System.out.println("Limiter reached");
+                    }
+                }
                 System.out.println("Selected: " + pin.studentName);
                 //NOTE: add button functionality here:
                 break;
