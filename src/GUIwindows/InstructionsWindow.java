@@ -55,7 +55,7 @@ public class InstructionsWindow extends JFrame {
 
         runButton.addActionListener(e -> {
             this.dispose();
-            new NetworkPage();
+            new NetworkWindow();
         });
 
         buttonPanel.add(previousButton);

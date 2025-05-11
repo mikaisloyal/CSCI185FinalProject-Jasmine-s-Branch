@@ -52,7 +52,7 @@ public class IntroductionWindow extends JFrame {
 
         run.addActionListener(e -> {
             this.dispose();
-            new NetworkPage(); // go to network Window
+            new NetworkWindow(); // go to network Window
         });
 
         buttonPanel.add(instructions);
