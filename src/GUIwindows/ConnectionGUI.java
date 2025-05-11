@@ -5,6 +5,9 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
+
+package GUIwindows;
+
 import UserFiles.*;
 import java.awt.*;
 import javax.swing.*;

@@ -9,12 +9,11 @@ package GUIwindows;
 
 import GUIpanels.MapPanel;
 import GUIpanels.StudentFormPanel;
-import UserFiles.CompareConnections;
+import UserFiles.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import javax.swing.*;
 import java.util.ArrayList;
-import UserFiles.*;
+import javax.swing.*;
 
 public class NetworkWindow extends JFrame {
     public NetworkWindow() {
@@ -33,7 +32,11 @@ public class NetworkWindow extends JFrame {
         this.add(button, BorderLayout.SOUTH);
 
         button.addActionListener((ActionEvent e) -> {
+
             CompareConnections connection = new CompareConnections(mapPanel.getStudentA(), mapPanel.getStudentB());
+            ConnectionGUI gui = new ConnectionGUI();
+            gui.setConnectionStrength(mapPanel.getStudentA(), mapPanel.getStudentB(), connection.getStrength());
+            gui.display();
             System.out.println(connection.toString());
         });
 
