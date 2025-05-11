@@ -6,9 +6,9 @@ Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
 package GUIpanels;
-
-import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import javax.swing.*;
 
 public class StudentFormPanel extends JPanel{
 
@@ -93,6 +93,13 @@ public class StudentFormPanel extends JPanel{
         constraints.gridy = 20;
         createButton = new JButton("Create Student");
         this.add(createButton, constraints);
+
+        createButton.addActionListener((ActionEvent e) -> {
+            String fname = firstNameField.getText();
+            String lname = lastNameField.getText();
+            int age = (Integer)ageBox.getSelectedItem();
+            String nat = (String)nationalityBox.getSelectedItem();
+        });
 
 
     }
