@@ -19,37 +19,11 @@ public class InstructionsWindow extends JFrame {
         this.setLocationRelativeTo(null);
 
         //-----------Instruction Message-------------
-        String htmlText = """
-<html>
-    <body style='font-family: Comic Sans MS; font-size: 16px; text-align: center;'>
-        <h2>Hi!</h2>
-        <p>This application helps you discover what you have in common with other students<br>
-        who have submitted their information.</p>
-
-        <h2>Connections Strength Table</h2>
-        <table border='1' align='center' cellpadding='8' cellspacing='0'>
-            <tr><th>Feature</th><th>Points if Same</th></tr>
-            <tr><td>First Name</td><td>5</td></tr>
-            <tr><td>Last Name</td><td>5</td></tr>
-            <tr><td>Age</td><td>10</td></tr>
-            <tr><td>Nationality</td><td>10</td></tr>
-            <tr><td>University Name</td><td>15</td></tr>
-            <tr><td>University Location</td><td>15</td></tr>
-            <tr><td>Major</td><td>10</td></tr>
-            <tr><td>Interests</td><td>1 × 10 = 10 (max 10)</td></tr>
-            <tr><td>Classes</td><td>4 × 5 = 20 (max 5)</td></tr>
-        </table>
-
-        <p style='margin-top:20px;'>After you fill out the form and press <b>"Create Student"</b>,<br>
-        a pin with your name will appear on the map at your university location.</p>
-
-        <p>If at least two students are created, select their pins and click <b>"Show Connections"</b>.<br>
-        A new window will display your similarities (classes, interests, etc).</p>
-
-        <p>To delete all students and reset, press the <b>"Reset"</b> button below the map.</p>
-    </body>
-</html>
-""";
+        String htmlText = "Welcome to the Global Student Network Simulator. Here you can find international students just like you to make friends with!" 
+        + "\n\nTo get Started, please return to the main window and press the [RUN] button." 
+        + "\n\nOnce at the network page, Please fill out your information on the STUDENT PROFILE FORM." 
+        + "\n\nWhen Completed, Press the [CREATE STUDENT] button. There, you should see yourself alongside your potential peers." 
+        + "\n\nIf you want to see your connection strength between your peers, press you and the other persons icon. A [SHOW CONNECTION] button should appear and will show your connection strength.";
 
         JEditorPane instructionsPane = new JEditorPane("text/html", htmlText);
         instructionsPane.setEditable(false);
