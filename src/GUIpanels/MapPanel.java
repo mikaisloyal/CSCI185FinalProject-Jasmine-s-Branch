@@ -24,7 +24,9 @@ public class MapPanel extends JPanel implements MouseListener {
     private BufferedImage worldMap;
     private String selectedCountry = null;
     private final HashMap<String, Point> countryCoordinates = new HashMap<>();
-    private ArrayList<Student> arr;
+    private static int count = 1;
+    private static Student studentA;
+    private static Student studentB;
 
     //Creating a mini Pin class
     private static class Pin {
@@ -50,11 +52,10 @@ public class MapPanel extends JPanel implements MouseListener {
 
 
     public MapPanel() {
-        arr = new ArrayList<Student>();
         this.addMouseListener(this);//adding the listener
         try {
             // worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
-            worldMap = ImageIO.read(new File("assets/worldMap.jpg"));
+            worldMap = ImageIO.read(new File("../assets/worldMap.jpg"));
         } catch (IOException e) {
             System.out.println("Could not load map image!");
         }
@@ -159,14 +160,13 @@ public class MapPanel extends JPanel implements MouseListener {
             Rectangle hitBox = new Rectangle(scaledX - radius / 2, scaledY - radius / 2, radius, radius);
 
             if (hitBox.contains(mouseX, mouseY)) {
-                if(arr.size() <= 2){
-                    if (arr.size() == 2) {
-                        System.out.println("Limiter reached");
-                    } else {
-                        arr.add(pin.stu);
-                    }
+                if (count == 1) {
+                    studentA = pin.stu;
+                    count++;
+                } else {
+                    studentB = pin.stu;
+                    count = 1;
                 }
-                System.out.println("Selected: " + pin.studentName);
                 //NOTE: add button functionality here:
                 break;
             }

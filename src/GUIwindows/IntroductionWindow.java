@@ -7,8 +7,8 @@ Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
 
 package GUIwindows;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class IntroductionWindow extends JFrame {
     public IntroductionWindow() {
@@ -18,7 +18,7 @@ public class IntroductionWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Background image
-        ImageIcon bgIcon = new ImageIcon("assets/Intro_window_backgroung_image.jpg"); //Adjust image's file path if it doesn't show the image. You can always give an absolute path.
+        ImageIcon bgIcon = new ImageIcon("../assets/Intro_window_backgroung_image.jpg"); //Adjust image's file path if it doesn't show the image. You can always give an absolute path.
         Image img = bgIcon.getImage().getScaledInstance(1000, 600, Image.SCALE_SMOOTH);
         JLabel bgLabel = new JLabel(new ImageIcon(img));
         bgLabel.setLayout(new BorderLayout());
