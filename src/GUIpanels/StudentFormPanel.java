@@ -6,8 +6,12 @@ Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
 package GUIpanels;
+import UserFiles.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 
 public class StudentFormPanel extends JPanel{
@@ -94,11 +98,34 @@ public class StudentFormPanel extends JPanel{
         createButton = new JButton("Create Student");
         this.add(createButton, constraints);
 
-        createButton.addActionListener((ActionEvent e) -> {
-            String fname = firstNameField.getText();
-            String lname = lastNameField.getText();
-            int age = (Integer)ageBox.getSelectedItem();
-            String nat = (String)nationalityBox.getSelectedItem();
+        createButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Person
+                String fname = firstNameField.getText();
+                String lname = lastNameField.getText();
+                String ageBoxConverter = (String)ageBox.getSelectedItem();
+                int age = Integer.parseInt(ageBoxConverter);
+                String nat = (String)nationalityBox.getSelectedItem();
+                
+                // University
+                String uniName = (String)universityNameBox.getSelectedItem();
+                String uniLocation = (String)universityCountryBox.getSelectedItem();
+                University uni = new University(uniName, uniLocation);
+                
+                // Student
+                String maj = (String)majorBox.getSelectedItem();
+                
+                // ArrayLists
+                List<String> interestConverter = interstsList.getSelectedValues();
+                ArrayList<String> interest = new ArrayList<String>(interestConverter);
+
+                List<String> classConverter = classesList.getSelectedValues();
+                ArrayList<String> classes = new ArrayList<String>(classConverter);         
+                
+                Student stu = new Student(fname, lname, age, nat, uni, maj, interest, classes);
+                System.out.println(stu.toString());
+            }
         });
 
 
