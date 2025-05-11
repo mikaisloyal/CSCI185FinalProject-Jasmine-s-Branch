@@ -1,0 +1,11 @@
+# ignore compiled Java class files
+*.class
+
+# ignore project config files
+.idea/
+*.iml
+
+# ignore build and output folders
+/out/
+/out/production/
+/target/
