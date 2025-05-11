@@ -129,7 +129,7 @@ public class StudentFormPanel extends JPanel{
                 studentList.add(stu);
                 System.out.println(stu.toString());
 
-                // MapPanel.addPin(new University(), new Student()); // Causing an error. Non static method cannot be referenced in a static context.
+                // MapPanel.addPin(uni, stu); // Causing an error. Non static method cannot be referenced in a static context.
 
                 FileManager.saveStudents(studentList);
 
