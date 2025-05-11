@@ -7,57 +7,25 @@ Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
 
+import GUIwindows.*;
+import GUIwindows.NetworkPage;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 class Main {
-
-
     public static void main(String[] args) {
 
 
-        // Main Frame initializing
+        //Creating a frame
         JFrame mainFrame = new JFrame("Global Student Network Simulator");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(800,800);
+        mainFrame.setSize(1000, 600);
+        mainFrame.setLocationRelativeTo(null);
 
-        JPanel mainPanel = new JPanel();
-        mainPanel.setBackground(Color.orange);
-        mainPanel.setLayout(new BorderLayout());
+        //Running Introduction Window
+        new IntroductionWindow();
 
-        //Components
-        JLabel title = new JLabel("Global Student Network Simulator");
-        title.setFont(new Font("Comic Sans MS", Font.PLAIN, 40));
-        title.setHorizontalAlignment(0);
-        mainPanel.add(title,BorderLayout.NORTH);
-
-
-        JButton insButton = new JButton("Instructions");
-        insButton.setHorizontalAlignment(0);
-        insButton.setBackground(Color.cyan);
-        mainPanel.add(insButton,BorderLayout.WEST);
-
-        JButton runButton = new JButton("Run");
-        runButton.setHorizontalAlignment(0);
-        runButton.setBackground(Color.cyan);
-        mainPanel.add(runButton,BorderLayout.CENTER);
-
-        // Functionality
-
-        insButton.addActionListener((ActionEvent e) -> {
-            Instruction insPage = new Instruction();
-        });
-
-        runButton.addActionListener((ActionEvent e) -> {
-            mainFrame.dispose();
-            NetworkPage netPage = new NetworkPage();
-        });
-
-
-        // mainPanel.add(uniLocationPanel);
-        mainFrame.add(mainPanel);
-        mainFrame.setVisible(true);
 
         //--------------------Testing Student, Person, CompareConnections classes---------------------------------------
         /*

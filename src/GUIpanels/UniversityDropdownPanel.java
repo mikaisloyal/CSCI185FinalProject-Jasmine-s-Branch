@@ -6,7 +6,9 @@ Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
 Date of last contribution (Use the date on Github commit)
 */
 
-package UserFiles;
+package GUIpanels;
+import UserFiles.University;
+
 import java.awt.*;
 import java.util.*;
 import java.util.List;

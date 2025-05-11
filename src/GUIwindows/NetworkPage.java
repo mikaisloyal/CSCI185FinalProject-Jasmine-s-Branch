@@ -1,3 +1,7 @@
+package GUIwindows;
+
+import GUIpanels.MapPanel;
+import GUIpanels.UniversityDropdownPanel;
 import UserFiles.*;
 import java.awt.*;
 import java.util.ArrayList;
