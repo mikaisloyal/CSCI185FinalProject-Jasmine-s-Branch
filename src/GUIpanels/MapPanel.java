@@ -25,8 +25,8 @@ public class MapPanel extends JPanel implements MouseListener {
     private String selectedCountry = null;
     private final HashMap<String, Point> countryCoordinates = new HashMap<>();
     private static int count = 1;
-    private static Student studentA;
-    private static Student studentB;
+    private static Student studentA = new Student();
+    private static Student studentB = new Student();
 
     //Creating a mini Pin class
     private static class Pin {
@@ -105,7 +105,7 @@ public class MapPanel extends JPanel implements MouseListener {
 
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         //drawing sclaed map image
@@ -141,6 +141,15 @@ public class MapPanel extends JPanel implements MouseListener {
         repaint();//redrawing map with no pins
     }
 
+    public Student getStudentA(){
+        return studentA;
+    }
+
+    public Student getStudentB(){
+        return studentB;
+    }
+
+
     @Override
     public void mouseClicked(MouseEvent m) {
         ArrayList<Student> arr = new ArrayList<Student>();
@@ -160,13 +169,22 @@ public class MapPanel extends JPanel implements MouseListener {
             Rectangle hitBox = new Rectangle(scaledX - radius / 2, scaledY - radius / 2, radius, radius);
 
             if (hitBox.contains(mouseX, mouseY)) {
+                String text = "A";
                 if (count == 1) {
                     studentA = pin.stu;
                     count++;
+                    text = "A";
                 } else {
                     studentB = pin.stu;
+                    System.out.println(pin.studentName);
                     count = 1;
+                    text = "B";
                 }
+                JFrame f1 = new JFrame();
+                f1.setSize(400,400);
+                JLabel fText = new JLabel(pin.studentName + " was selected for STUDENT " + text);
+                f1.add(fText);
+                f1.setVisible(true);
                 //NOTE: add button functionality here:
                 break;
             }

@@ -7,8 +7,10 @@ Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
 import GUIwindows.*;
-
+import UserFiles.*;
+import java.util.ArrayList;
 import javax.swing.*;
+
 
 class Main {
     public static void main(String[] args) {
@@ -21,6 +23,13 @@ class Main {
 
         //Running Introduction Window
         new IntroductionWindow();
+
+        ArrayList<Student> loaded = FileManager.loadStudents();
+        System.out.println("\n Loaded Students:");
+        for (Student s : loaded) {
+            System.out.println("-------------------------------------------------");
+            System.out.println(s);
+        }
 
 
         //--------------------Testing Student, Person, CompareConnections classes---------------------------------------

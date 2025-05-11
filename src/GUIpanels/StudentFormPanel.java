@@ -22,6 +22,8 @@ public class StudentFormPanel extends JPanel{
     private MultiSelectionList interstsList, classesList;
     private JButton clearButton, createButton;
     private static ArrayList<Student> studentList;
+    private JLabel stuA;
+    private JLabel stuB;
 
     public StudentFormPanel(){
         this.setPreferredSize(new Dimension(400, 960));
@@ -29,9 +31,8 @@ public class StudentFormPanel extends JPanel{
         this.setLayout(new GridBagLayout());
         this.studentList = new ArrayList<Student>();
 
-
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.insets = new Insets(0, 10, 4, 10); //This line will add space between the edges of the components and its cells
+        constraints.insets = new Insets(0, 10, 2, 10); //This line will add space between the edges of the components and its cells
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.WEST; //Setting left alignment for the text
 
@@ -39,7 +40,7 @@ public class StudentFormPanel extends JPanel{
         JLabel header = new JLabel("Student Profile Form");
         header.setFont(new Font("Comic Sans MS", Font.BOLD, 23));
         header.setHorizontalAlignment(SwingConstants.CENTER);
-        constraints.gridwidth = 2;
+        constraints.gridwidth = 4;
         constraints.gridy = 0;
         constraints.gridx = 0;
         this.add(header, constraints);
@@ -89,7 +90,6 @@ public class StudentFormPanel extends JPanel{
         classesList = new MultiSelectionList(classesOptions, 5);
         addField(classesList, constraints, 18);
 
-
         //Buttons
         constraints.gridx = 0;
         constraints.gridy = 19;
@@ -99,6 +99,7 @@ public class StudentFormPanel extends JPanel{
         constraints.gridy = 20;
         createButton = new JButton("Create Student");
         this.add(createButton, constraints);
+
 
         createButton.addActionListener(new ActionListener() {
             @Override
@@ -135,7 +136,6 @@ public class StudentFormPanel extends JPanel{
 
             }
         });
-
 
     }
 

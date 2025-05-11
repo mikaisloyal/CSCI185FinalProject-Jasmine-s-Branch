@@ -9,8 +9,12 @@ package GUIwindows;
 
 import GUIpanels.MapPanel;
 import GUIpanels.StudentFormPanel;
+import UserFiles.CompareConnections;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
+import java.util.ArrayList;
+import UserFiles.*;
 
 public class NetworkWindow extends JFrame {
     public NetworkWindow() {
@@ -25,6 +29,14 @@ public class NetworkWindow extends JFrame {
         MapPanel mapPanel = new MapPanel();
         this.add(mapPanel, BorderLayout.CENTER);
 
+        JButton button = new JButton("Calculate Connection Strength");
+        this.add(button, BorderLayout.SOUTH);
+
+        button.addActionListener((ActionEvent e) -> {
+            CompareConnections connection = new CompareConnections(mapPanel.getStudentA(), mapPanel.getStudentB());
+            System.out.println(connection.toString());
+        });
+
 //
 //        //using BorderLayout to place components side by side
 //        this.setLayout(new BorderLayout());
@@ -36,16 +48,16 @@ public class NetworkWindow extends JFrame {
 
 //
       //TEMP testing for red dots on map
-    //    ArrayList<String> arr = new ArrayList<String>();
-    //    ArrayList<String> arr2 = new ArrayList<String>();
-    //    University nyit = new University("New York Institute of Technology", "USA");
-    //    University kyoto = new University("Kyoto University", "Japan");
-//
-//
-    //    Student student1 = new Student("Aron", "Lin", 18, "Asian", nyit, "CS", arr, arr2);
-    //    Student student2 = new Student("Rita", "Chen", 18, "Asian", kyoto, "CS", arr, arr2);
-    //    mapPanel.addPin(nyit, student1);
-    //    mapPanel.addPin(kyoto, student2);
+       ArrayList<String> arr = new ArrayList<String>();
+       ArrayList<String> arr2 = new ArrayList<String>();
+       University nyit = new University("New York Institute of Technology", "USA");
+       University kyoto = new University("Kyoto University", "Japan");
+
+
+       Student student1 = new Student("Aron", "Lin", 18, "Asian", nyit, "CS", arr, arr2);
+       Student student2 = new Student("Rita", "Chen", 18, "Asian", kyoto, "CS", arr, arr2);
+       mapPanel.addPin(nyit, student1);
+       mapPanel.addPin(kyoto, student2);
 //
 //
 //        //this actionListener is for interactive dropdown selection: the circle will show up depending on what the user selects
