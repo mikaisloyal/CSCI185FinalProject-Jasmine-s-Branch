@@ -9,9 +9,8 @@ package GUIwindows;
 
 import GUIpanels.MapPanel;
 import GUIpanels.StudentFormPanel;
-
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 public class NetworkWindow extends JFrame {
     public NetworkWindow() {
@@ -36,17 +35,17 @@ public class NetworkWindow extends JFrame {
 //
 
 //
-//       //TEMP testing for red dots on map
-//        ArrayList<String> arr = new ArrayList<String>();
-//        ArrayList<String> arr2 = new ArrayList<String>();
-//        University nyit = new University("New York Institute of Technology", "USA");
-//        University kyoto = new University("Kyoto University", "Japan");
+      //TEMP testing for red dots on map
+    //    ArrayList<String> arr = new ArrayList<String>();
+    //    ArrayList<String> arr2 = new ArrayList<String>();
+    //    University nyit = new University("New York Institute of Technology", "USA");
+    //    University kyoto = new University("Kyoto University", "Japan");
 //
 //
-//        Student student1 = new Student("Aron", "Lin", 18, "Asian", nyit, "CS", arr, arr2);
-//        Student student2 = new Student("Rita", "Chen", 18, "Asian", kyoto, "CS", arr, arr2);
-//        mapPanel.addPin(nyit, student1);
-//        mapPanel.addPin(kyoto, student2);
+    //    Student student1 = new Student("Aron", "Lin", 18, "Asian", nyit, "CS", arr, arr2);
+    //    Student student2 = new Student("Rita", "Chen", 18, "Asian", kyoto, "CS", arr, arr2);
+    //    mapPanel.addPin(nyit, student1);
+    //    mapPanel.addPin(kyoto, student2);
 //
 //
 //        //this actionListener is for interactive dropdown selection: the circle will show up depending on what the user selects
@@ -65,4 +64,6 @@ public class NetworkWindow extends JFrame {
 
 
     }
+
+
 }

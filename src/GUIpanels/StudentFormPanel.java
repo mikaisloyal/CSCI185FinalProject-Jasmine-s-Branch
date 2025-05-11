@@ -21,11 +21,13 @@ public class StudentFormPanel extends JPanel{
     private JComboBox<String> ageBox, nationalityBox,  universityCountryBox, universityNameBox, majorBox;
     private MultiSelectionList interstsList, classesList;
     private JButton clearButton, createButton;
+    private static ArrayList<Student> studentList;
 
     public StudentFormPanel(){
         this.setPreferredSize(new Dimension(400, 960));
         this.setBackground(Color.YELLOW);
         this.setLayout(new GridBagLayout());
+        this.studentList = new ArrayList<Student>();
 
 
         GridBagConstraints constraints = new GridBagConstraints();
@@ -124,7 +126,13 @@ public class StudentFormPanel extends JPanel{
                 ArrayList<String> classes = new ArrayList<String>(classConverter);         
                 
                 Student stu = new Student(fname, lname, age, nat, uni, maj, interest, classes);
+                studentList.add(stu);
                 System.out.println(stu.toString());
+
+                // MapPanel.addPin(new University(), new Student()); // Causing an error. Non static method cannot be referenced in a static context.
+
+                FileManager.saveStudents(studentList);
+
             }
         });
 
