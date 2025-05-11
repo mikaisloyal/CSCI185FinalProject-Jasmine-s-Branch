@@ -1,14 +1,13 @@
 /*
-ProjectName
-CSCI 185
-M03
-Aron Lin, Rita Chen, Htoo Naing, Zhasmin Tuiachieva
-Date of last contribution (Use the date on Github commit)
-*/
+Project Title: Global Student Network Simulator
+Course: Spring 2025 - M03 - Computer Programming II
+Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
+Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
+ */
 
 package GUIpanels;
-import UserFiles.University;
 
+import UserFiles.University;
 import java.awt.*;
 import java.util.*;
 import java.util.List;

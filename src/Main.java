@@ -6,16 +6,12 @@ Contributors: Zhasmin Tuiachieva, Htoo Naing, Rita Chen, Aron Lin
 Date of Last Contribution: 5/12/2025 (MM/DD/YYYY)
  */
 
-
 import GUIwindows.*;
-import GUIwindows.NetworkPage;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 
 class Main {
     public static void main(String[] args) {
-
 
         //Creating a frame
         JFrame mainFrame = new JFrame("Global Student Network Simulator");
