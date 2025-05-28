@@ -34,16 +34,16 @@ Watch the full project demo here:
 ## 📂 Project Structure
 
 ├── src/
-│ ├── GUIwindows/ # Main windows like MainPage, NetworkWindow
-│ ├── GUIpanels/ # Panels: StudentForm, Map, UniversityDropdown
-│ ├── UserFiles/ # Logic classes: Student, Person, University, etc.
-│ └── Main.java # Application entry point
-├── assets/ # Assets like map image
-├── Report.pdf # Final project report with diagrams
-├── Presentation.pptx # In-class presentation slides
-├── Project design version X.pdf # Jasmine's early design drafts
-├── UsersData.dat # Serialized student data
-└── README.md # This file
+│   ├── GUIwindows/                # Main windows like MainPage, NetworkWindow
+│   ├── GUIpanels/                 # Panels: StudentForm, Map, UniversityDropdown
+│   ├── UserFiles/                 # Logic classes: Student, Person, University, etc.
+│   └── Main.java                  # Application entry point
+├── assets/                        # Assets like map image
+├── Report.pdf                     # Final project report with diagrams
+├── Presentation.pptx              # In-class presentation slides
+├── Project design version X.pdf   # Jasmine's early design drafts
+├── UsersData.dat                  # Serialized student data
+└── README.md                      # This file
 
 
 ---
