@@ -1,11 +1,5 @@
 # 🌐 Global Student Network Generator
 
-> **Course:** Computer Programming II – CSCI 185 – Section M03  
-> **Semester:** Spring 2025  
-> **Team Members:** Jasmine Tuiachieva, Rita Chen, Aron Lin, Htoo Naing  
-> **Instructor:** Austin Stietzel  
-> **Presentation Date:** May 12, 2025  
-
 A Java-based GUI application that helps international students build global social networks by simulating visual connections between student profiles. The system uses similarity scoring and dynamic GUI interaction to encourage meaningful profile matches.
 
 ---
@@ -63,8 +57,12 @@ These include the main window, instructions page, form panel, and map panel with
 
 ## 📊 Diagrams
 
-- **UML Class Diagram:** Outlines core class relationships and object structure  
-- **Flow Diagram:** Describes logical flow between user input, GUI response, and backend processing  
+- **UML Class Diagram:**
+- [image](https://github.com/user-attachments/assets/83e070cd-a280-42ea-a20a-48c3bb6cdadb)
+- Outlines core class relationships and object structure  
+- **Flow Diagram:**
+- [image](https://github.com/user-attachments/assets/c0fbae7b-a12c-4eba-a2ce-414bbda72566)
+- Describes logical flow between user input, GUI response, and backend processing  
 
 (See the **System Architecture** section in `Report.pdf`)
 
@@ -88,10 +86,10 @@ These include the main window, instructions page, form panel, and map panel with
 
 ## 🧑‍🤝‍🧑 Contributors
 
-- **Jasmine Tuiachieva** – Project planner, GUI form designer, Student logic, CompareConnections, File I/O  
-- **Rita Chen** – MapPanel, university placement, coordinate mapping, pin interaction  
-- **Aron Lin** – GitHub management, diagrams, presentation and video editing, navigation panels  
-- **Htoo Naing** – Connection bar design, document drafting, presentation structure
+- **Jasmine Tuiachieva**  
+- **Rita Chen** 
+- **Aron Lin**
+- **Htoo Naing**
 
 ---
 
