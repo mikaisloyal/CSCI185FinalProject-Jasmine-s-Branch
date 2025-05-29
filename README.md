@@ -94,7 +94,7 @@ These include the main window, instructions page, form panel, and map panel with
 - [**Jasmine Tuiachieva**](https://github.com/mikaisloyal)  
 - [**Rita Chen**](https://github.com/RXCHEN1)
 - [**Aron Lin**](https://github.com/TRGGB2)  
-- [**Htoo Naing**](https://github.com/pimpleEater))  
+- [**Htoo Naing**](https://github.com/pimpleEater)  
 
 ---
 
