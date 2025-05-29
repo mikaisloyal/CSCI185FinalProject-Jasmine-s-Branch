@@ -58,10 +58,10 @@ These include the main window, instructions page, form panel, and map panel with
 ## 📊 Diagrams
 
 - **UML Class Diagram:**
-- [image](https://github.com/user-attachments/assets/83e070cd-a280-42ea-a20a-48c3bb6cdadb)
+  ![alt text](assets/uml.jpg)
 - Outlines core class relationships and object structure  
 - **Flow Diagram:**
-- [image](https://github.com/user-attachments/assets/c0fbae7b-a12c-4eba-a2ce-414bbda72566)
+  ![alt text](assets/flow diagram.jpg)
 - Describes logical flow between user input, GUI response, and backend processing  
 
 (See the **System Architecture** section in `Report.pdf`)
@@ -96,4 +96,3 @@ These include the main window, instructions page, form panel, and map panel with
 ## ✅ Status
 
 🎓 **Completed as a final exam project**  
-🧩 Modular structure ready for future enhancements: multi-user comparison, chat simulation, or database integration
