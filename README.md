@@ -57,14 +57,19 @@ These include the main window, instructions page, form panel, and map panel with
 
 ## 📊 Diagrams
 
-- **UML Class Diagram:**
- ![alt text](assets/uml.jpg)
-- Outlines core class relationships and object structure  
-- **Flow Diagram:**
- ![alt text](assets/flow_diagram.jpg)
-- Describes logical flow between user input, GUI response, and backend processing  
+### UML Class Diagram
 
-(See the **System Architecture** section in `Report.pdf`)
+![UML Class Diagram](assets/uml.jpg)
+
+> Outlines core class relationships and object structure, including how the GUI components interact with domain classes like `Student`, `University`, and utility classes like `FileManager` and `CompareConnections`.
+
+---
+
+### Flow Diagram
+
+![Flow Diagram](assets/flow_diagram.jpg)
+
+> Describes logical flow from user input through the GUI to backend processes, including how profiles are created, saved, and visualized on the map.
 
 ---
 
