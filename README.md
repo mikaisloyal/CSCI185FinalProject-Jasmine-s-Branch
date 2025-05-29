@@ -58,10 +58,10 @@ These include the main window, instructions page, form panel, and map panel with
 ## 📊 Diagrams
 
 - **UML Class Diagram:**
-  ![alt text](assets/uml.jpg)
+- ![alt text](assets/uml.jpg)
 - Outlines core class relationships and object structure  
 - **Flow Diagram:**
-  ![alt text](assets/flow diagram.jpg)
+- ![alt text](assets/flow_diagram.jpg)
 - Describes logical flow between user input, GUI response, and backend processing  
 
 (See the **System Architecture** section in `Report.pdf`)
