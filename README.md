@@ -91,10 +91,10 @@ These include the main window, instructions page, form panel, and map panel with
 
 ## 🧑‍🤝‍🧑 Contributors
 
-- **Jasmine Tuiachieva**  
-- **Rita Chen** 
-- **Aron Lin**
-- **Htoo Naing**
+- [**Jasmine Tuiachieva**](https://github.com/mikaisloyal)  
+- [**Rita Chen**](https://github.com/RXCHEN1)
+- [**Aron Lin**](https://github.com/TRGGB2)  
+- [**Htoo Naing**](https://github.com/pimpleEater))  
 
 ---
 
